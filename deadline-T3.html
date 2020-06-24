@@ -1,0 +1,263 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Deadline-T3</title>
+    <style>
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .hihi {
+            background-image: none !important;
+        }
+    </style>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.15/"></script>
+
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/SceneView",
+            "esri/layers/TileLayer",
+            "esri/layers/FeatureLayer",
+            "esri/widgets/AreaMeasurement3D",
+            "esri/widgets/DirectLineMeasurement3D",
+            "esri/widgets/Legend",
+            "esri/widgets/BasemapToggle",
+            "esri/widgets/Locate",
+            "esri/widgets/Track",
+            "esri/Graphic",
+            "esri/widgets/LayerList",
+            "esri/widgets/Expand",
+            "esri/layers/ImageryLayer",
+            "esri/Basemap"
+        ], function (
+            Map,
+            SceneView,
+            TileLayer,
+            FeatureLayer,
+            AreaMeasurement3D,
+            DirectLineMeasurement3D,
+            Legend,
+            BasemapToggle,
+            Locate,
+            Track,
+            Graphic,
+            LayerList,
+            Expand,
+            ImageryLayer,
+            Basemap
+        ) {
+
+            var map = new Map({
+                basemap: "streets-navigation-vector"
+            });
+
+            var view = new SceneView({
+                container: "viewDiv",
+                map: map,
+                camera: {
+                    position: {  // observation point
+                        x: -118.80800,
+                        y: 33.96100,
+                        z: 25000 // altitude in meters
+                    },
+                    tilt: 65  // perspective in degrees
+                }
+            });
+
+            var layer = new ImageryLayer({
+                // URL to the imagery service
+                url: "https://landsat2.arcgis.com/arcgis/rest/services/Landsat8_Views/ImageServer",
+                popupTemplate: {
+                    // autocasts as new PopupTemplate()
+                    title: "RGB {Raster.ServicePixelValue}",
+                    content: "<div style='background-color:rgb({Raster.ServicePixelValue});height:30px;'></div>"
+                }
+            });
+            map.add(layer);
+            // ---------------------đầu đường mòn----------------------//
+            var popupTrailheads = {
+                "title": "Trailhead",
+                "content": "<b>Trail:</b> {TRL_NAME}<br><b>City:</b> {CITY_JUR}<br><b>Cross Street:</b> {X_STREET}<br><b>Parking:</b> {PARKING}<br><b>Elevation:</b> {ELEV_FT} ft"
+            }
+            var trailheads = new FeatureLayer({
+                url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads_Styled/FeatureServer/0",
+                outFields: ["TRL_NAME", "CITY_JUR", "X_STREET", "PARKING", "ELEV_FT"],
+                popupTemplate: popupTrailheads
+            });
+            map.add(trailheads);
+            
+            // ---------------------Đường mòn----------------------//
+            var popupTrails = {
+                "title": "Trail Information",
+                "content": function () {
+                    return "This is {TRL_NAME} with {ELEV_GAIN} ft of climbing.";
+                }
+            }
+            var trailsLayer = new FeatureLayer({
+                url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0",
+                outFields: ["TRL_NAME", "ELEV_GAIN"],
+                popupTemplate: popupTrails
+            });
+            map.add(trailsLayer, 0);
+
+            // ---------------------Công viên----------------------//
+            var popupOpenspaces = {
+                "title": "{PARK_NAME}",
+                "content": [{
+                    "type": "fields",
+                    "fieldInfos": [
+                        {
+                            "fieldName": "AGNCY_NAME",
+                            "label": "Agency",
+                            "isEditable": true,
+                            "tooltip": "",
+                            "visible": true,
+                            "format": null,
+                            "stringFieldOption": "text-box"
+                        },
+                        {
+                            "fieldName": "TYPE",
+                            "label": "Type",
+                            "isEditable": true,
+                            "tooltip": "",
+                            "visible": true,
+                            "format": null,
+                            "stringFieldOption": "text-box"
+                        },
+                        {
+                            "fieldName": "ACCESS_TYP",
+                            "label": "Access",
+                            "isEditable": true,
+                            "tooltip": "",
+                            "visible": true,
+                            "format": null,
+                            "stringFieldOption": "text-box"
+                        },
+                        {
+                            "fieldName": "GIS_ACRES",
+                            "label": "Acres",
+                            "isEditable": true,
+                            "tooltip": "",
+                            "visible": true,
+                            "format": {
+                                "places": 2,
+                                "digitSeparator": true
+                            },
+                            "stringFieldOption": "text-box"
+                        }
+                    ]
+                }]
+            }
+            var openspaces = new FeatureLayer({
+                url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Parks_and_Open_Space_Styled/FeatureServer/0",
+                outFields: ["TYPE", "PARK_NAME", "AGNCY_NAME", "ACCESS_TYP", "GIS_ACRES", "TRLS_MI", "TOTAL_GOOD", "TOTAL_FAIR", "TOTAL_POOR"],
+                popupTemplate: popupOpenspaces
+            });
+            map.add(openspaces, 0);
+
+            // ---------------------Tắt bản đồ nền----------------------//
+            var basemap = new Basemap({
+                portalItem: {
+                    id: "None"
+                }
+            });
+            var basemapToggle = new BasemapToggle({
+                view: view,
+                id: "1234a",
+                nextBasemap: basemap
+            });
+
+            // ---------------------Hiển thị vị trí hiện tại----------------------//
+            var track = new Track({
+                view: view,
+                graphic: new Graphic({
+                    symbol: {
+                        type: "simple-marker",
+                        size: "12px",
+                        color: "green",
+                        outline: {
+                            color: "#efefef",
+                            width: "1.5px"
+                        }
+                    }
+                }),
+                useHeadingEnabled: false  // Don't change orientation of the map
+            });
+            view.ui.add(track, "top-left");
+
+            // ---------------------đo diện tích----------------------//
+            var measurementWidget = new AreaMeasurement3D({
+                view: view
+            });
+
+            // ---------------------bật tắt layer----------------------//
+            var layerList = new LayerList({
+                view: view
+            });
+
+            // ---------------------chú giải----------------------//
+            const legend = new Legend({
+                view: view
+            });
+
+            // ---------------------độ dài----------------------//
+            var measurementWidget1 = new DirectLineMeasurement3D({
+                view: view
+            });
+
+            // ---------------------expand----------------------//
+            var bgExpand = new Expand({
+                view: view,
+                content: basemapToggle
+            });
+            view.ui.add(bgExpand, "top-right");
+
+            var bgExpand1 = new Expand({
+                view: view,
+                content: layerList
+            });
+            view.ui.add(bgExpand1, "top-right");
+
+            var bgExpand2 = new Expand({
+                view: view,
+                content: measurementWidget
+            });
+            view.ui.add(bgExpand2, "top-right");
+
+            var bgExpand4 = new Expand({
+                view: view,
+                content: measurementWidget1
+            });
+            view.ui.add(bgExpand4, "top-right");
+
+            var bgExpand3 = new Expand({
+                view: view,
+                content: legend
+            });
+            view.ui.add(bgExpand3, "top-right");
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="para">
+        <div id="viewDiv">
+
+        </div>
+    </div>
+    <script>
+
+    </script>
+</body>
+
+</html>
