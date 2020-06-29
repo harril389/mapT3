@@ -1,0 +1,4 @@
+B1: Khởi tạo ứng dụng
+B2: Tạo csdl
+B3: Tạo các Component, các trang cần thiết
+B4: Thêm các Form và xử lý sự kiện (thêm,sửa, xóa)
