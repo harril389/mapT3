@@ -1,0 +1,443 @@
+.para{
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+.hour-clock{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin: 150px;
+}
+
+.hour-time{
+    text-align: end;
+    width: 150px;
+    height: 18px;
+    color: white;
+}
+
+.hour1{
+    position: absolute; 
+}
+.hour2{
+    position: absolute;
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+.hour3{
+    position: absolute;
+    -ms-transform: rotate(60deg);
+    transform: rotate(60deg);
+}
+.hour4{
+    position: absolute;
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.hour5{
+    position: absolute;
+    -ms-transform: rotate(120deg);
+    transform: rotate(120deg);
+}
+.hour6{
+    z-index: 1;
+    position: absolute;
+    -ms-transform: rotate(150deg);
+    transform: rotate(150deg);
+}
+.hour7{
+    z-index: 1;
+    position: absolute;
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.hour8{
+    z-index: 1;
+    position: absolute;
+    -ms-transform: rotate(210deg);
+    transform: rotate(210deg);
+}
+.hour9{
+    z-index: 1;
+    position: absolute;
+    -ms-transform: rotate(240deg);
+    transform: rotate(240deg);
+}
+.hour10{
+    z-index: 1;
+    position: absolute;
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+.hour11{
+    position: absolute;
+    -ms-transform: rotate(300deg);
+    transform: rotate(300deg);
+}
+.hour12{
+    position: absolute;
+    -ms-transform: rotate(330deg);
+    transform: rotate(330deg);
+}
+.minute-clock{
+    width: 340px;
+    height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin: 80px;
+}
+.ms-time{
+    text-align: end;
+    width: 300px;
+    height: 18px;
+    color: white;
+}
+.second-clock{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+.se-time{
+    text-align: end;
+    width: 480px;
+    height: 18px;
+    color: white;
+}
+.ms1{
+    position: absolute;
+}
+.ms60{
+    position: absolute;
+    -ms-transform: rotate(6deg);
+    transform: rotate(6deg);
+}
+.ms59{
+    position: absolute;
+    -ms-transform: rotate(12deg);
+    transform: rotate(12deg);
+}
+.ms58{
+    position: absolute;
+    -ms-transform: rotate(18deg);
+    transform: rotate(18deg);
+}
+.ms57{
+    position: absolute;
+    -ms-transform: rotate(24deg);
+    transform: rotate(24deg);
+}
+.ms56{
+    position: absolute;
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+.ms55{
+    position: absolute;
+    -ms-transform: rotate(36deg);
+    transform: rotate(36deg);
+}
+.ms54{
+    position: absolute;
+    -ms-transform: rotate(42deg);
+    transform: rotate(42deg);
+}
+.ms53{
+    position: absolute;
+    -ms-transform: rotate(48deg);
+    transform: rotate(48deg);
+}
+.ms52{
+    position: absolute;
+    -ms-transform: rotate(54deg);
+    transform: rotate(54deg);
+}
+.ms51{
+    position: absolute;
+    -ms-transform: rotate(60eg);
+    transform: rotate(60deg);
+}
+.ms50{
+    position: absolute;
+    -ms-transform: rotate(66deg);
+    transform: rotate(66deg);
+}
+.ms49{
+    position: absolute;
+    -ms-transform: rotate(72deg);
+    transform: rotate(72deg);
+}
+.ms48{
+    position: absolute;
+    -ms-transform: rotate(78deg);
+    transform: rotate(78deg);
+}
+.ms47{
+    position: absolute;
+    -ms-transform: rotate(84deg);
+    transform: rotate(84deg);
+}
+.ms46{
+    position: absolute;
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.ms45{
+    position: absolute;
+    -ms-transform: rotate(96deg);
+    transform: rotate(96deg);
+}
+.ms44{
+    position: absolute;
+    -ms-transform: rotate(102deg);
+    transform: rotate(102deg);
+}
+.ms43{
+    position: absolute;
+    -ms-transform: rotate(108deg);
+    transform: rotate(108deg);
+}
+.ms42{
+    position: absolute;
+    -ms-transform: rotate(114deg);
+    transform: rotate(114deg);
+}
+.ms41{
+    position: absolute;
+    -ms-transform: rotate(120deg);
+    transform: rotate(120deg);
+}
+.ms40{
+    position: absolute;
+    -ms-transform: rotate(126deg);
+    transform: rotate(126deg);
+}
+.ms39{
+    position: absolute;
+    -ms-transform: rotate(132deg);
+    transform: rotate(132deg);
+}
+.ms38{
+    position: absolute;
+    -ms-transform: rotate(138deg);
+    transform: rotate(138deg);
+}
+.ms37{
+    position: absolute;
+    -ms-transform: rotate(144deg);
+    transform: rotate(144deg);
+}
+.ms36{
+    position: absolute;
+    -ms-transform: rotate(150deg);
+    transform: rotate(150deg);
+}
+.ms35{
+    position: absolute;
+    -ms-transform: rotate(156deg);
+    transform: rotate(156deg);
+}
+.ms34{
+    position: absolute;
+    -ms-transform: rotate(162deg);
+    transform: rotate(162deg);
+}
+.ms33{
+    position: absolute;
+    -ms-transform: rotate(168deg);
+    transform: rotate(168deg);
+}
+.ms32{
+    position: absolute;
+    -ms-transform: rotate(174deg);
+    transform: rotate(174deg);
+}
+.ms31{
+    position: absolute;
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.ms30{
+    position: absolute;
+    -ms-transform: rotate(186deg);
+    transform: rotate(186deg);
+}
+.ms29{
+    position: absolute;
+    -ms-transform: rotate(192deg);
+    transform: rotate(192deg);
+}
+.ms28{
+    position: absolute;
+    -ms-transform: rotate(198deg);
+    transform: rotate(198deg);
+}
+.ms27{
+    position: absolute;
+    -ms-transform: rotate(204deg);
+    transform: rotate(204deg);
+}
+.ms26{
+    position: absolute;
+    -ms-transform: rotate(210deg);
+    transform: rotate(210deg);
+}
+.ms25{
+    position: absolute;
+    -ms-transform: rotate(216deg);
+    transform: rotate(216deg);
+}
+.ms24{
+    position: absolute;
+    -ms-transform: rotate(222deg);
+    transform: rotate(222deg);
+}
+.ms23{
+    position: absolute;
+    -ms-transform: rotate(228deg);
+    transform: rotate(228deg);
+}
+.ms22{
+    position: absolute;
+    -ms-transform: rotate(234deg);
+    transform: rotate(234deg);
+}
+.ms21{
+    position: absolute;
+    -ms-transform: rotate(240deg);
+    transform: rotate(240deg);
+}
+.ms20{
+    position: absolute;
+    -ms-transform: rotate(246deg);
+    transform: rotate(246deg);
+}
+.ms19{
+    position: absolute;
+    -ms-transform: rotate(252deg);
+    transform: rotate(252deg);
+}
+.ms18{
+    position: absolute;
+    -ms-transform: rotate(258deg);
+    transform: rotate(258deg);
+}
+.ms17{
+    position: absolute;
+    -ms-transform: rotate(264deg);
+    transform: rotate(264deg);
+}
+.ms16{
+    position: absolute;
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+.ms15{
+    position: absolute;
+    -ms-transform: rotate(276deg);
+    transform: rotate(276deg);
+}
+.ms14{
+    position: absolute;
+    -ms-transform: rotate(282deg);
+    transform: rotate(282deg);
+}
+.ms13{
+    position: absolute;
+    -ms-transform: rotate(288deg);
+    transform: rotate(288deg);
+}
+.ms12{
+    position: absolute;
+    -ms-transform: rotate(294deg);
+    transform: rotate(294deg);
+}
+.ms11{
+    position: absolute;
+    -ms-transform: rotate(300deg);
+    transform: rotate(300deg);
+}
+.ms10{
+    position: absolute;
+    -ms-transform: rotate(306deg);
+    transform: rotate(306deg);
+}
+.ms9{
+    position: absolute;
+    -ms-transform: rotate(312deg);
+    transform: rotate(312deg);
+}
+.ms8{
+    position: absolute;
+    -ms-transform: rotate(318deg);
+    transform: rotate(318deg);
+}
+.ms7{
+    position: absolute;
+    -ms-transform: rotate(324deg);
+    transform: rotate(324deg);
+}
+.ms6{
+    position: absolute;
+    -ms-transform: rotate(330deg);
+    transform: rotate(330deg);
+}
+.ms5{
+    position: absolute;
+    -ms-transform: rotate(336deg);
+    transform: rotate(336deg);
+}
+.ms4{
+    position: absolute;
+    -ms-transform: rotate(342deg);
+    transform: rotate(342deg);
+}
+.ms3{
+    position: absolute;
+    -ms-transform: rotate(348deg);
+    transform: rotate(348deg);
+}
+.ms2{
+    position: absolute;
+    -ms-transform: rotate(354deg);
+    transform: rotate(354deg);
+}
+.display-time{
+    width: 250px;
+    height: 500px;
+    margin-left: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+.border-display{
+    margin-top: -2px;
+    width: 100%;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.hour-display{
+    color: rgb(0, 0, 0);;
+    text-align: end;
+    width: 53px;
+}
+.minute-display{
+    color: rgb(0, 0, 0);;
+    width: 106px;
+    text-align: center;
+}
+.second-display{
+    color: rgb(0, 0, 0);;
+    width: 58px;
+    text-align: center;
+}
