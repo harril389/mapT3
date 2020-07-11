@@ -27,7 +27,6 @@ class App extends Component {
     this.setState({hourGMT: click});
     console.log(click);
   }
-  
   renderTasks() {
     return this.props.tasks.map((task) => (
       <Task key={task._id} task={task} handleChange={this.changeHour} />

@@ -21,6 +21,7 @@ body {
   margin: 0 auto;
   min-height: 100%;
   display: flex;
+  flex-wrap: wrap;
 }
  
 header {
@@ -115,9 +116,13 @@ header .hide-completed {
 }
 .list-country{
   display: flex;
+  width: 1000px;
+  height: 115px;
+  overflow-x: scroll;
 }
 .header-time{
   display: flex;
+  width: 100%;
   margin: 20px;
 }
 .add-country{
