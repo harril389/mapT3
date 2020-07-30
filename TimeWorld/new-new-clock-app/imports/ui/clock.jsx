@@ -34,7 +34,9 @@ else if (props.changeGmtHour === "+6") {
         <div>
         <div className="country-name-s">{props.changeGmtName}</div>
         {
-          clockr.map(aa=><div key={aa._id} style={{color:"red", fontSize:"115px", fontWeight:"600", textAlign:"center", width:"100%"}}>{aa.hours-timeGmt}:{aa.mins}:{aa.secs}</div>)
+          clockr.map(aa=>(
+            <div key={aa._id} style={{color:"red", fontSize:"115px", fontWeight:"600", textAlign:"center", width:"100%"}}>{(aa.hours<timeGmt)?(parseInt(aa.hours-timeGmt)+24):(aa.hours-timeGmt)}:{aa.mins}:{aa.secs}</div>
+          ))
         }
         </div>
       </div>

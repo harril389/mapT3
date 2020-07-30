@@ -16,7 +16,7 @@ export const App = () => {
     setTimeGmt(b)
     setNameGmt(a)
   }
-  console.log(timeGMT)
+  // console.log(timeGMT)
   return(
     <div className="param">
       <div className="para-div">
@@ -28,7 +28,7 @@ export const App = () => {
         )
       }
       </div>
-      <div className="para-div">
+      <div className="para-div-1">
       <Clocks changeGmtHour={timeGMT} changeGmtName={nameGMT}/>
       </div>
     </div>

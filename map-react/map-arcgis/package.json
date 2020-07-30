@@ -1,5 +1,5 @@
 {
-  "name": "new-new-clock-app",
+  "name": "map-arcgis",
   "private": true,
   "scripts": {
     "start": "meteor run",
@@ -9,9 +9,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
-    "cron": "^1.8.2",
+    "esri-loader": "^2.15.0",
     "meteor-node-stubs": "^1.0.0",
-    "moment": "^2.27.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },
